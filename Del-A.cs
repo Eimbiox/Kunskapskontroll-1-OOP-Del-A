@@ -3,6 +3,7 @@ List<int> prices = [];
 //Main Loop
 while (true)
 {   Console.Clear();
+    Console.ResetColor();
     //Check if list is empty
     if (goods.Count() == 0)
     {
@@ -19,14 +20,15 @@ while (true)
         Console.WriteLine($"Total Price: {sum} kr");
     }
     //Ask for the item input and save in variable
-    Console.WriteLine("Type the name of the good you want to add: ");
+    Console.WriteLine("Type the name of the good you want to add\nOr a number to remove something from the list: ");
     string inputGood = Console.ReadLine().Trim();
     //Check if item is with letters not numbers
     if (int.TryParse(inputGood, out int index))
     {
         //Check if the input number is within bounds of the list, if not show error
-        if (index > goods.Count() || index < 0)
+        if (index > goods.Count() || index <= 0)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"There are no items at {index}");
             Console.ReadKey();
         }
@@ -44,6 +46,7 @@ while (true)
     //Check if the string is empty with error
     else if (inputGood == "")
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Please enter in a valid good\nPress any key to continue");
         Console.ReadKey();
     }
@@ -64,6 +67,7 @@ while (true)
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please enter a valid number\nPress any key to continue");
                 Console.ReadKey();
 
@@ -71,6 +75,7 @@ while (true)
         }
         else
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Please enter a valid number\nPress any key to continue");
             Console.ReadKey();
         }
