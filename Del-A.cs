@@ -13,7 +13,9 @@ while (true)
         {
             Console.WriteLine($"{i + 1}. {goods[i]} - {prices[i]} kr");
         }
-
+        //Prints out total price
+        int sum = prices.Sum();
+        Console.WriteLine($"Total Price: {sum} kr");
     }
     
     Console.ReadLine();
