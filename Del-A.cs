@@ -24,11 +24,35 @@ while (true)
     //Check if item is with letters not numbers
     if (int.TryParse(inputGood, out int temp))
     {
+        //Fixa så man kan ta bort grejer.
         Console.WriteLine("Please enter in a valid good");
     }
     else
     {
+        //Ask to enter the price of the good
         Console.WriteLine($"Enter the price of {inputGood}");
-    }
-    Console.ReadLine();
+        string inputPrice = Console.ReadLine().Trim();
+        //Check if the price is a number
+        if (int.TryParse(inputPrice, out int price))
+        {
+            //Check if price is not negative, it can be 0 because its free
+           if (price >= 0)
+            {
+                //Add the items to the lists
+                goods.Add(inputGood);
+                prices.Add(price);
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid number\nPress any key to continue");
+                Console.ReadKey();
+
+            }
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number\nPress any key to continue");
+            Console.ReadKey();
+        }
+    }   
 }
