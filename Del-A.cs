@@ -40,8 +40,26 @@ while (true)
             prices.RemoveAt(index - 1);
             Console.WriteLine($"{tempGood} has been removed from the list\nPress any key to continue");
             Console.ReadKey();
-
         }
+    }
+    //Check if input == dyrast, if it is show the most expensive item in the list.
+    //If input is dyrast and list is empty show error
+    else if (inputGood.ToLower() == "dyrast")
+    {
+        if (goods.Count() == 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("The list is empty, nothing to show\nPress any key to continue");
+            Console.ReadKey();
+        }
+        else
+        {
+            int max = prices.Max();
+            int indexMostExpensive = prices.IndexOf(max);
+            Console.WriteLine($"Most expensive: {goods[indexMostExpensive]}, Price {max} kr.\nPress any key to continue");
+            Console.ReadKey();
+        }
+        
     }
     //Check if the string is empty with error
     else if (inputGood == "")
@@ -70,7 +88,6 @@ while (true)
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please enter a valid number\nPress any key to continue");
                 Console.ReadKey();
-
             }
         }
         else
