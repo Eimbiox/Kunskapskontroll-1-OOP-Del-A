@@ -1,5 +1,5 @@
-List<string> goods = ["Mjölk", "Smör"];
-List<int> prices = [15, 20];
+List<string> goods = [];
+List<int> prices = [];
 //Main Loop
 while (true)
 {   Console.Clear();
@@ -22,10 +22,30 @@ while (true)
     Console.WriteLine("Type the name of the good you want to add: ");
     string inputGood = Console.ReadLine().Trim();
     //Check if item is with letters not numbers
-    if (int.TryParse(inputGood, out int temp))
+    if (int.TryParse(inputGood, out int index))
     {
-        //Fixa så man kan ta bort grejer.
-        Console.WriteLine("Please enter in a valid good");
+        //Check if the input number is within bounds of the list, if not show error
+        if (index > goods.Count() || index < 0)
+        {
+            Console.WriteLine($"There are no items at {index}");
+            Console.ReadKey();
+        }
+        else
+        {
+            //Makes a temp var to show that the item has been removed from the basket
+            string tempGood = goods[index -1];
+            goods.RemoveAt(index - 1);
+            prices.RemoveAt(index - 1);
+            Console.WriteLine($"{tempGood} has been removed from the list\nPress any key to continue");
+            Console.ReadKey();
+
+        }
+    }
+    //Check if the string is empty with error
+    else if (inputGood == "")
+    {
+        Console.WriteLine("Please enter in a valid good\nPress any key to continue");
+        Console.ReadKey();
     }
     else
     {
