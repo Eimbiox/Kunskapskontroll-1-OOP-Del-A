@@ -6,21 +6,21 @@ class Student(string name)
 
     public void Join(Course courseToJoin)
     {
-        if (courseToJoin.Students.Count < courseToJoin.MaxSeats)
+        if (!Courses.Contains(courseToJoin))
         {
-            if (!Courses.Contains(courseToJoin))
+            if (courseToJoin.Students.Count < courseToJoin.MaxSeats)
             {
                 Courses.Add(courseToJoin);
                 courseToJoin.Students.Add(this);
             }
             else
             {
-                System.Console.WriteLine($"{this.Name} is already in {courseToJoin.Name} class");
+                System.Console.WriteLine($"{courseToJoin.Name} class is full");
             }
         }
         else
         {
-            System.Console.WriteLine($"{courseToJoin.Name} class is full");
+            System.Console.WriteLine($"{this.Name} is already in {courseToJoin.Name} class");
         }
     }
     public void Leave(Course courseToLeave)
@@ -37,12 +37,20 @@ class Student(string name)
     }
     public void Schedule()
     {
-        System.Console.WriteLine($"{this.Name} is in theese classes: ");
-
-        foreach (var course in Courses)
+        if (Courses.Count == 0)
         {
-            System.Console.WriteLine($"{course.Name} class");
+            System.Console.WriteLine($"{this.Name} is not in any classes");
         }
+        else
+        {
+             System.Console.WriteLine($"{this.Name} is in theese classes: ");
+
+            foreach (var course in Courses)
+            {
+            System.Console.WriteLine($"{course.Name} class");
+            }
+        }
+       
     }
     public override string ToString()
     {
