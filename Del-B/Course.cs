@@ -44,12 +44,12 @@ class Course(string name, int maxSeats)
         }
         else
         {
-            System.Console.WriteLine($"{this.Name} class has: ");
+            System.Console.WriteLine($"{this.Name} class has theese students: ");
             foreach (var student in Students)
             {
                 System.Console.WriteLine(student.Name);
             }
-            System.Console.WriteLine("As students");
+            
         }
        
     }
