@@ -59,7 +59,6 @@ while (true)
             Console.WriteLine($"Most expensive: {goods[indexMostExpensive]}, Price {max} kr.\nPress any key to continue");
             Console.ReadKey();
         }
-        
     }
     //Check if the string is empty with error
     else if (inputGood == "")
