@@ -44,5 +44,9 @@ class Student(string name)
             System.Console.WriteLine($"{course.Name} class");
         }
     }
+    public override string ToString()
+    {
+        return this.Name;
+    }
 
 }

@@ -45,5 +45,9 @@ class Course(string name, int maxSeats)
         }
         System.Console.WriteLine("As students");
     }
+    public override string ToString()
+    {
+        return $"{this.Name} ({Students.Count}/{this.MaxSeats} seats)";
+    }
 
 }
