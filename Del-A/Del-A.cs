@@ -7,7 +7,7 @@ while (true)
     //Check if list is empty
     if (goods.Count() == 0)
     {
-        Console.WriteLine("There is nothing in your basket");
+        Console.WriteLine("There is nothing in your basket\n");
     }
     else
     {   //Prints out the lists
@@ -17,10 +17,10 @@ while (true)
         }
         //Prints out total price
         int sum = prices.Sum();
-        Console.WriteLine($"Total Price: {sum} kr");
+        Console.WriteLine($"Total Price: {sum} kr\n");
     }
     //Ask for the item input and save in variable
-    Console.WriteLine("Type the name of the good you want to add\nOr a number to remove something from the list: ");
+    Console.WriteLine("Type the name of the good you want to add\nA number to remove something from the list\n'Dyrast' to check the most expensive item\n");
     string inputGood = Console.ReadLine().Trim();
     //Check if item is with letters not numbers
     if (int.TryParse(inputGood, out int index))
